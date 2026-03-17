@@ -1,10 +1,11 @@
 "use client"
 import { getMovies } from "@/lib/getMovies";
 import { useState, useEffect } from "react"
-import MovieCard from "../movies/MovieCard"
-import { Child } from "../movies/Child"
-import AppSidebar from "./Sidebar";
-import CustomSidebar from "./CustomSidebar";
+import MovieCard from "../_components/MovieCard"
+import useBookmarks from "@/hooks/useBookmarks";
+// import { Child } from "../movies/Child"
+// import AppSidebar from "./Sidebar";
+import CustomSidebar from "../_components/CustomSidebar";
 
 interface moviesData {
     id: string;
@@ -17,14 +18,9 @@ interface moviesData {
 }
 
 export default function MoviesPage() {
-    const [selectedId, setSelectedId] = useState<string | null>(null);
-    const [moviesData, setMoviesData] = useState<moviesData[]>([])
 
-    const childrenData = [
-        { id: "1", name: "Child A" },
-        { id: "2", name: "Child B" },
-        { id: "3", name: "Child C" },
-    ];
+    const [moviesData, setMoviesData] = useState<moviesData[]>([])
+    const [selectedIds, setSelectedIds] = useBookmarks();
 
     useEffect(() => {
         const loadMovies = async () => {
@@ -40,11 +36,20 @@ export default function MoviesPage() {
         console.log(moviesData)
     }, [])
 
-    // This function handles the logic when ANY child is clicked
-    const handleChildClick = (id: string) => {
-        setSelectedId(id);
+    // This function handles the logic when a movieCard is clicked
+    const handleBookmarkClick = (id: string) => {
+        setSelectedIds((prev) => {
+            // Check if the ID is already in the array
+            if (prev.includes(id)) {
+                // If it is, remove it
+                return prev.filter(movie => movie !== id);
+            } else {
+                // If it's not, add it
+                return [...prev, id]
+            }
+        });
         console.log(`Parent received click from: ${id}`);
-    };
+    }
 
     return (
     <div className="m-4 w-screen relative">
@@ -64,8 +69,8 @@ export default function MoviesPage() {
                             movieType={movie.movieType}
                             rating={movie.rating}
                             title={movie.title}
-                            isBookmarked={selectedId === movie.id}
-                            onButtonClick={handleChildClick} // Passing the function
+                            isBookmarked={selectedIds.includes(movie.id)}
+                            onButtonClick={handleBookmarkClick} // Passing the function
                             variant="long"
                             className="flex-shrink-0"
                             />
@@ -83,9 +88,9 @@ export default function MoviesPage() {
                             movieType={movie.movieType}
                             rating={movie.rating}
                             title={movie.title}
-                            isBookmarked={selectedId === movie.id}
+                            isBookmarked={selectedIds.includes(movie.id)}
                             className="grow-1 h-fit"
-                            onButtonClick={handleChildClick} // Passing the function
+                            onButtonClick={handleBookmarkClick} // Passing the function
                             />
             })}
         </div>
@@ -122,7 +127,7 @@ export default function MoviesPage() {
 
         <br/>
 
-        <div className="space-y-4 w-[260px]">
+        {/* <div className="space-y-4 w-[260px]">
             <h1>Selected: {selectedId || "None"}</h1>
             {childrenData.map((child) => (
                 <Child
@@ -133,7 +138,7 @@ export default function MoviesPage() {
                 onButtonClick={handleChildClick} // Passing the function
                 />
             ))}
-        </div>
+        </div> */}
         </div>
     </div>
     );

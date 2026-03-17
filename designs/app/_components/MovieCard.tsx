@@ -11,9 +11,9 @@ import { Dot, Bookmark, Film, MonitorPlay } from 'lucide-react'
 //import { Film } from 'lucide-react'
 
 type MovieCardProps = {
-    id?: string;
+    id: string;
     isBookmarked?: boolean;
-    onButtonClick?: (id: string) => void;
+    onButtonClick: (id: string) => void;
     thumbnail: string;
     year: string;
     movieType: string;
@@ -57,8 +57,10 @@ export default function MovieCard({id, isBookmarked, onButtonClick, thumbnail, y
       </CardTitle>
 
       <CardAction className="absolute top-3 right-3 z-35">
-        <Button className="rounded-full w-[40px] h-[40px] bg-[#10141E]/50 cursor-pointer group">
-            <Bookmark className="!w-[20px] !h-[20px] text-white transition-colors group-hover:text-red-500 group-hover:fill-red-500"/>
+        <Button onClick={() => onButtonClick(id)}
+            className="rounded-full w-[40px] h-[40px] bg-[#10141E]/50 cursor-pointer group">
+            <Bookmark className={`!w-[20px] !h-[20px] text-white transition-colors 
+                      group-hover:text-red-50 group-hover:fill-red-50 ${isBookmarked ? "fill-white" : ""}`}/>
         </Button>
       </CardAction>
         
