@@ -1,0 +1,76 @@
+{
+    "movies": [
+        {
+          "id": "8321",
+          "thumbnail": "https://picsum.photos/seed/movie1/400/225",
+          "year": "2024",
+          "movieType": "Movie",
+          "rating": "PG-13",
+          "title": "Beyond the Horizon",
+          "trending": "true"
+        },
+        {
+          "id": "4952",
+          "thumbnail": "https://picsum.photos/seed/series2/400/225",
+          "year": "2022",
+          "movieType": "TV Series",
+          "rating": "18+",
+          "title": "Shadow Protocol",
+          "trending": "true"
+        },
+        {
+          "id": "1029",
+          "thumbnail": "https://picsum.photos/seed/movie3/400/225",
+          "year": "2019",
+          "movieType": "Movie",
+          "rating": "PG",
+          "title": "The Last Kingdom",
+          "trending": "false"
+        },
+        {
+          "id": "7741",
+          "thumbnail": "https://picsum.photos/seed/series4/400/225",
+          "year": "2023",
+          "movieType": "TV Series",
+          "rating": "16+",
+          "title": "Cyber Pulse",
+          "trending": "true"
+        },
+        {
+          "id": "3320",
+          "thumbnail": "https://picsum.photos/seed/movie5/400/225",
+          "year": "2017",
+          "movieType": "Movie",
+          "rating": "18+",
+          "title": "Midnight in Lagos",
+          "trending": "false"
+        },
+        {
+          "id": "5589",
+          "thumbnail": "https://picsum.photos/seed/series6/400/225",
+          "year": "2021",
+          "movieType": "TV Series",
+          "rating": "PG",
+          "title": "Arctic Quest",
+          "trending": "false"
+        },
+        {
+          "id": "2214",
+          "thumbnail": "https://picsum.photos/seed/movie7/400/225",
+          "year": "2025",
+          "movieType": "Movie",
+          "rating": "R",
+          "title": "The Silent Echo",
+          "trending": "false"
+        },
+        {
+          "id": "9043",
+          "thumbnail": "https://picsum.photos/seed/series8/400/225",
+          "year": "2020",
+          "movieType": "TV Series",
+          "rating": "18+",
+          "title": "Neon Nights",
+          "trending": "false"
+        }
+      ]
+}
