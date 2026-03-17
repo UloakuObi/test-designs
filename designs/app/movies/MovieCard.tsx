@@ -27,10 +27,11 @@ export default function MovieCard({id, isBookmarked, onButtonClick, thumbnail, y
   
     const movieIcon = movieType === "Movie" ? <Film /> : <MonitorPlay />
     const imgSize = variant === "long" ? "h-[210px]" : ""
-    const cardSize = variant === "long" ? "w-[480px]" : "w-[280px]"
+    const cardSize = variant === "long" ? "w-[480px]" : "w-[168px] sm:w-[200px] md:w-[240px]"
     const cardDesc = variant === "long" ? "absolute bottom-18 left-5 z-30" : ""
     const cardTitle = variant === "long" ? "absolute bottom-9 left-5 z-30 text-2xl" : ""
     const fontSize = variant == "long" ? "text-sm" : "text-xs"
+    // h-[110px] sm:h-[180px] md:h-[210px]
 
     return (
     <Card className={`pt-0 relative rounded-b-[0] bg-[#10141E] ${cardSize} ${className}`}>
@@ -56,8 +57,8 @@ export default function MovieCard({id, isBookmarked, onButtonClick, thumbnail, y
       </CardTitle>
 
       <CardAction className="absolute top-3 right-3 z-35">
-        <Button className="rounded-full w-[48px] h-[48px] bg-[#10141E]/50 cursor-pointer group">
-            <Bookmark className="!w-[25px] !h-[25px] text-white transition-colors group-hover:text-red-500 group-hover:fill-red-500"/>
+        <Button className="rounded-full w-[40px] h-[40px] bg-[#10141E]/50 cursor-pointer group">
+            <Bookmark className="!w-[20px] !h-[20px] text-white transition-colors group-hover:text-red-500 group-hover:fill-red-500"/>
         </Button>
       </CardAction>
         
