@@ -52,10 +52,14 @@ export default function BookmarksPage() {
         console.log(`Parent received click from: ${id}`);
     }
 
+    const handleFilter = (term: string) => {
+        return moviesData.filter(movie => movie.movieType === term)
+    }
+
     return (
         <div className="m-4 w-screen relative">
-            <CustomSidebar variant="mobile"/>
-            <CustomSidebar variant="desktop"/>
+            <CustomSidebar variant="mobile" onButtonClick={handleFilter}/>
+            <CustomSidebar variant="desktop" onButtonClick={handleFilter}/>
             <div className="m-0 lg:ml-22">
                 <h1 className="text-2xl mb-4">Booksmarks Page</h1>
                 <div className="flex gap-y-2 gap-x-5 sm:gap-x-6 flex-wrap mr-4">
