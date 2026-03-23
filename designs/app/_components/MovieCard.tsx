@@ -25,7 +25,7 @@ type MovieCardProps = {
 
 export default function MovieCard({id, isBookmarked, onButtonClick, thumbnail, year, movieType, rating, variant, title, className}: MovieCardProps) {
   
-    const movieIcon = movieType === "Movie" ? <Film /> : <MonitorPlay />
+    const movieIcon = movieType.toLowerCase() === "movie" ? <Film /> : <MonitorPlay />
     const imgSize = variant === "long" ? "h-[210px]" : ""
     const cardSize = variant === "long" ? "w-[480px]" : "w-[168px] sm:w-[200px] md:w-[240px]"
     const cardDesc = variant === "long" ? "absolute bottom-18 left-5 z-30" : ""
@@ -39,7 +39,7 @@ export default function MovieCard({id, isBookmarked, onButtonClick, thumbnail, y
       <img
         src={thumbnail}
         alt="Event cover"
-        className={`relative z-20 rounded-b-xl aspect-video w-full ${imgSize} object-cover brightness-60 grayscale dark:brightness-40`}
+        className={`relative z-20 rounded-b-xl aspect-video w-full ${imgSize} object-cover brightness-90 dark:brightness-70`}
       />
 
       <CardDescription className={`flex gap-1 items-center ${cardDesc}`}>
